@@ -1,7 +1,13 @@
 package br.edu.ifpb.cartaxo.todo_list.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="tb_usuario")
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
     private String password;
