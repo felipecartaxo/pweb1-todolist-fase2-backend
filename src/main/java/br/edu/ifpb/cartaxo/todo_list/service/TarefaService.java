@@ -22,6 +22,11 @@ public class TarefaService {
         return this.tarefaRepository.findAll();
     }
 
+    // TODO: Teste do filtro
+    public List<Tarefa> filtrarTarefas(String titulo, String categoria) {
+        return tarefaRepository.filtrarPorTituloECategoria(titulo, categoria);
+    }
+
     // Busca uma tarefa por id
     //    public Tarefa getTarefaPorId(Long id) {
     //        return this.tarefaRepository.findById(id)

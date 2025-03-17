@@ -20,6 +20,15 @@ public class TarefaController {
         return this.tarefaService.getTarefas();
     }
 
+    // TODO: Teste do filtro
+    @GetMapping("/tarefas/filtrar")
+    public List<Tarefa> filtrarTarefas(
+            @RequestParam(required = false) String titulo,
+            @RequestParam(required = false) String categoria) {
+
+        return tarefaService.filtrarTarefas(titulo, categoria);
+    }
+
     // Retorna uma tarefa a partir do id passado na URL
     @GetMapping("/tarefas/{id}")
     public Tarefa getTarefaPorId(@PathVariable Long id) {
