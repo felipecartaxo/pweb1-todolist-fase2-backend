@@ -28,7 +28,7 @@ public class TarefaService {
 
     // Adiciona uma nova tarefa
     @Transactional
-    public Tarefa inserirOuAtualizar(Tarefa tarefa) {
+    public Tarefa inserirTarefa(Tarefa tarefa) {
         if (tarefa.getTitulo() == null || tarefa.getTitulo().isEmpty()) {
             // Lança exceção caso a tarefa que está sendo cadastrada não tenha título
             throw new RuntimeException("O título da tarefa é obrigatório");
@@ -36,6 +36,16 @@ public class TarefaService {
 
         // Se não lançar exceção, salva a tarefa
         return this.tarefaRepository.save(tarefa);
+    }
+
+    // Atualiza uma tarefa existente
+    public Tarefa atualizarTarefa(Long id, Tarefa obj) {
+        Tarefa tarefa = tarefaRepository.getReferenceById(id);
+        tarefa.setTitulo(obj.getTitulo());
+        tarefa.setCategoria(obj.getCategoria());
+        tarefa.setConcluido(obj.getConcluido());
+
+        return tarefaRepository.save(tarefa);
     }
 
     // Remove uma tarefa a partir de um id

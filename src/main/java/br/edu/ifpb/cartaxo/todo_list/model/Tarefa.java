@@ -46,7 +46,7 @@ public class Tarefa {
         this.categoria = categoria;
     }
 
-    public boolean isConcluido() {
+    public boolean getConcluido() {
         return concluido;
     }
 

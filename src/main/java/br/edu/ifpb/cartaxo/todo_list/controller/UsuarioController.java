@@ -32,7 +32,7 @@ public class UsuarioController {
     }
 
     // Remove um usuário a partir de um id
-    @DeleteMapping("tarefas/{id}")
+    @DeleteMapping("usuarios/{id}")
     public void apagarUsuario(@PathVariable Long id) {
         this.usuarioService.apagar(id);
     }
