@@ -41,8 +41,14 @@ public class TarefaController {
     }
 
     // Responde a requisições do tipo DELETE feitas para tarefas/{id}. Neste caso, irá remover a tarefa cujo id for igual ao id passado na URL
-    @DeleteMapping("tarefas/{id}")
-    public void apagarTarefa(@PathVariable Long id) {
-        this.tarefaService.apagar(id);
+    //    @DeleteMapping("tarefas/{id}")
+    //    public void apagarTarefa(@PathVariable Long id) {
+    //        this.tarefaService.apagar(id);
+    //    }
+
+    @DeleteMapping("/tarefas/{id}")
+    public ResponseEntity<Void> apagarTarefa(@PathVariable Long id) {
+        this.tarefaService.apagar(id); // Se não existir, lança 404 automaticamente
+        return ResponseEntity.ok().build();
     }
 }
