@@ -37,7 +37,7 @@ public class TarefaService {
         return this.tarefaRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
-                        "Tarefa não encontrada com o ID: " + id
+                        "Tarefa com o ID = " + id + " não encontrada"
                 ));
     }
 
@@ -62,6 +62,8 @@ public class TarefaService {
     //
     //        return tarefaRepository.save(tarefa);
     //    }
+
+    // Atualiza uma tarefa existente
     public Tarefa atualizarTarefa(Long id, Tarefa obj) {
         // Verifica se a tarefa existe antes de atualizar
         Tarefa tarefa = tarefaRepository.findById(id)
@@ -87,7 +89,7 @@ public class TarefaService {
         if (!tarefaRepository.existsById(id)) {
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
-                    "Tarefa não encontrada com o ID: " + id
+                    "Tarefa não encontrada com o ID = " + id + " não encontrada"
             );
         }
         this.tarefaRepository.deleteById(id);
