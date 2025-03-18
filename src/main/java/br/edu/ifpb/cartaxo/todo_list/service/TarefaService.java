@@ -89,7 +89,7 @@ public class TarefaService {
         if (!tarefaRepository.existsById(id)) {
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
-                    "Tarefa não encontrada com o ID = " + id + " não encontrada"
+                    "Tarefa com o ID = " + id + " não encontrada"
             );
         }
         this.tarefaRepository.deleteById(id);
